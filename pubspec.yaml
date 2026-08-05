@@ -1,0 +1,33 @@
+name: karaage_in
+description: "からあげin! - 文化祭ミニゲーム"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: ">=3.19.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flame: ^1.18.0
+  flame_audio: ^2.1.5
+  provider: ^6.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/audio/
+  # ポップ体フォントを追加する場合は assets/fonts/ に配置し、
+  # 下記のコメントを解除してください。
+  # fonts:
+  #   - family: PopFont
+  #     fonts:
+  #       - asset: assets/fonts/pop_font.ttf
+  #         weight: 700
