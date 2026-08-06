@@ -52,6 +52,32 @@ class _GameScreenState extends State<_GameScreen> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GameViewModel>();
+    final size = MediaQuery.of(context).size;
+    final isPortrait = size.height > size.width;
+
+    if (isPortrait) {
+      return Scaffold(
+        backgroundColor: AppColors.charcoal,
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              Icon(Icons.screen_rotation, color: AppColors.cream, size: 48),
+              SizedBox(height: 16),
+              Text(
+                '端末を横向きにしてください',
+                style: TextStyle(
+                  color: AppColors.cream,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 18,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
 
     return Scaffold(
       backgroundColor: AppColors.charcoal,

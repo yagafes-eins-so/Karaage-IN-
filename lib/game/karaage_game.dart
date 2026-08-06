@@ -34,6 +34,9 @@ class KaraageGame extends FlameGame with DragCallbacks, HasCollisionDetection {
 
   bool _isAiming = false;
   Vector2 _lastLocalPosition = Vector2.zero();
+  Vector2? _touchStartPosition;
+
+  bool _bgmStarted = false;
 
   /// "IN!!" / "MISS" ポップアップ表示用。FeedbackOverlay が購読する。
   final ValueNotifier<String?> feedbackText = ValueNotifier(null);
@@ -94,13 +97,17 @@ class KaraageGame extends FlameGame with DragCallbacks, HasCollisionDetection {
       case SessionPhase.title:
         _showOnly(GameOverlays.title);
         AudioManager.instance.stopBgm();
+        _bgmStarted = false;
         break;
       case SessionPhase.playing:
         overlays.clear();
         overlays.add(GameOverlays.hud);
         overlays.add(GameOverlays.feedback);
         cup.updateDifficulty(viewModel.currentDifficulty);
-        AudioManager.instance.playBgm();
+        if (!_bgmStarted) {
+          AudioManager.instance.playBgm();
+          _bgmStarted = true;
+        }
         break;
       case SessionPhase.result:
         _showOnly(GameOverlays.result);
@@ -127,6 +134,7 @@ class KaraageGame extends FlameGame with DragCallbacks, HasCollisionDetection {
     super.onDragStart(event);
     if (!viewModel.canThrow) return;
 
+    _touchStartPosition = event.localPosition.clone();
     _isAiming = true;
     _lastLocalPosition = event.localPosition.clone();
     player.setState(PlayerState.aiming);
@@ -136,21 +144,21 @@ class KaraageGame extends FlameGame with DragCallbacks, HasCollisionDetection {
   @override
   void onDragUpdate(DragUpdateEvent event) {
     super.onDragUpdate(event);
-    if (!_isAiming) return;
+    if (!_isAiming || _touchStartPosition == null) return;
 
     _lastLocalPosition += event.localDelta;
-    final dragVector = _lastLocalPosition - player.position;
+    final dragVector = _lastLocalPosition - _touchStartPosition!;
     aimGuide.updateAim(dragVector);
   }
 
   @override
   void onDragEnd(DragEndEvent event) {
     super.onDragEnd(event);
-    if (!_isAiming) return;
+    if (!_isAiming || _touchStartPosition == null) return;
     _isAiming = false;
     aimGuide.hide();
 
-    final dragVector = _lastLocalPosition - player.position;
+    final dragVector = _lastLocalPosition - _touchStartPosition!;
     _throw(dragVector);
   }
 
