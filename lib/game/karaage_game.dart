@@ -127,12 +127,8 @@ class KaraageGame extends FlameGame with DragCallbacks, HasCollisionDetection {
     super.onDragStart(event);
     if (!viewModel.canThrow) return;
 
-    final local = event.localPosition;
-    final distToPlayer = (local - player.position).length;
-    if (distToPlayer > player.size.x * 1.3) return; // プレイヤー付近以外は無視
-
     _isAiming = true;
-    _lastLocalPosition = local.clone();
+    _lastLocalPosition = event.localPosition.clone();
     player.setState(PlayerState.aiming);
     AudioManager.instance.playCharge();
   }

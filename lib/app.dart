@@ -45,11 +45,6 @@ class _GameScreenState extends State<_GameScreen> {
   @override
   void initState() {
     super.initState();
-    // 横画面固定(要件: Landscape)。
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
     final viewModel = context.read<GameViewModel>();
     _game = KaraageGame(viewModel: viewModel);
   }
