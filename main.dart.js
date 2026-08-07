@@ -66271,7 +66271,7 @@ $2(a,b){var s=this,r=null,q=A.o3(24),p=A.BP(B.D,4),o=A.ic("RESULT",A.eJ(r,r,B.S,
 d=A.GA(A.c([new A.A6("\u6210\u529f\u6570",""+g+" / "+e,d,r),new A.A6("\u6210\u529f\u7387",""+B.c.aK((e===0?0:l.gwp()/f.length)*100)+"%",d,r)],c),B.bb,B.pV,B.de)
 l=A.n7(r,n?16:24,r)
 g=s.a
-return A.aki(new A.iy(new A.au(0,1/0,b.d,1/0),A.t8(A.lH(r,A.Cw(A.c([o,m,new A.Md(s.f,k,r),j,i,B.NF,h,d,l,new A.pf("\u3082\u3046\u4e00\u5ea6",new A.a1E(g),B.S,B.ad,r),A.n7(r,n?8:10,r),new A.HJ(new A.a1F(g),r,r,r,r,r,r,!1,r,!0,r,B.NE,r)],c),B.bH),B.O,r,B.x3,new A.et(B.ad,r,p,q,B.kW,r,B.aP),r,r,r,s.c,r,r,s.b),r,r),r),B.ku)},
+return A.aki(new A.iy(new A.au(0,1/0,b.d,1/0),A.t8(A.lH(r,A.Cw(A.c([o,m,new A.Md(s.f,k,r),j,i,B.NE,h,d,l,new A.pf("\u3082\u3046\u4e00\u5ea6",new A.a1E(g),B.S,B.ad,r),A.n7(r,n?8:10,r),new A.HJ(new A.a1F(g),r,r,r,r,r,r,!1,r,!0,r,B.ND,r)],c),B.bH),B.O,r,B.x3,new A.et(B.ad,r,p,q,B.kW,r,B.aP),r,r,r,s.c,r,r,s.b),r,r),r),B.ku)},
 $S:133}
 A.a1E.prototype={
 $0(){$.hv().jv("sfx_click.mp3")
@@ -66287,7 +66287,7 @@ $S:0}
 A.Md.prototype={
 P(a){var s=null,r=A.BP(B.D,4),q=t.E
 r=A.c([A.lH(B.aN,A.ic(this.c.c,B.K0,s),B.O,s,s,new A.et(B.ea,s,r,s,s,s,B.fy),s,84,s,s,s,s,84)],q)
-if(this.d)B.b.J(r,A.c([B.IJ,B.ND],q))
+if(this.d)B.b.J(r,A.c([B.IJ,B.NF],q))
 return A.Cw(r,B.de)}}
 A.A6.prototype={
 P(a){var s=null
@@ -72541,12 +72541,12 @@ B.Ma=new A.k(!0,B.E,null,".AppleSystemUIFont",null,null,null,null,null,null,null
 B.Mv=new A.k(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackRedwoodCity labelMedium",null,null,null,null)
 B.JH=new A.k(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackRedwoodCity labelSmall",null,null,null,null)
 B.NC=new A.d6(B.Lp,B.Ko,B.Lq,B.LR,B.K5,B.Kd,B.KG,B.LM,B.KS,B.Md,B.Jz,B.JS,B.Ma,B.Mv,B.JH)
-B.LX=new A.k(!0,B.S,null,null,null,null,13,B.ar,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ND=new A.kB("PERFECT!! +1000",null,B.LX,null,null)
 B.JE=new A.k(!0,B.D,null,null,null,null,null,B.aU,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.NE=new A.kB("\u30bf\u30a4\u30c8\u30eb\u3078\u623b\u308b",null,B.JE,null,null)
+B.ND=new A.kB("\u30bf\u30a4\u30c8\u30eb\u3078\u623b\u308b",null,B.JE,null,null)
 B.MY=new A.k(!0,B.D,null,null,null,null,12,B.aU,null,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.NF=new A.kB("TOTAL SCORE",null,B.MY,null,null)
+B.NE=new A.kB("TOTAL SCORE",null,B.MY,null,null)
+B.LX=new A.k(!0,B.S,null,null,null,null,13,B.ar,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.NF=new A.kB("PERFECT!!",null,B.LX,null,null)
 B.Q4=new A.a5j(0,"system")
 B.Fo=new A.r(0.056,0.024)
 B.Fw=new A.r(0.108,0.3085)
