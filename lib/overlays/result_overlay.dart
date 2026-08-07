@@ -159,7 +159,7 @@ class _RankBadge extends StatelessWidget {
         if (isPerfect) ...[
           const SizedBox(height: 6),
           const Text(
-            'PERFECT!! +1000',
+            'PERFECT!!',
             style: TextStyle(
               color: AppColors.red,
               fontWeight: FontWeight.w900,
