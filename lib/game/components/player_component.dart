@@ -42,6 +42,7 @@ class PlayerComponent extends PositionComponent with HasGameReference {
         size: size,
         anchor: Anchor.center,
       );
+      _animComponent!.paint.colorFilter = ColorFilter.matrix(_saturationMatrix(1.25));
       add(_animComponent!);
     } catch (_) {
       _assetsLoaded = false;
@@ -52,7 +53,34 @@ class PlayerComponent extends PositionComponent with HasGameReference {
     _state = newState;
     if (_assetsLoaded && _animations.containsKey(newState)) {
       _animComponent?.animation = _animations[newState];
+      _animComponent?.paint.colorFilter = ColorFilter.matrix(_saturationMatrix(1.25));
     }
+  }
+
+  static List<double> _saturationMatrix(double saturation) {
+    final m = <double>[
+      0.213 + 0.787 * saturation,
+      0.715 - 0.715 * saturation,
+      0.072 - 0.072 * saturation,
+      0,
+      0,
+      0.213 - 0.213 * saturation,
+      0.715 + 0.285 * saturation,
+      0.072 - 0.072 * saturation,
+      0,
+      0,
+      0.213 - 0.213 * saturation,
+      0.715 - 0.715 * saturation,
+      0.072 + 0.928 * saturation,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+    ];
+    return m;
   }
 
   PlayerState get state => _state;
