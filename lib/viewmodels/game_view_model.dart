@@ -39,6 +39,7 @@ class GameViewModel extends ChangeNotifier {
     _totalScore = 0;
     _throwHistory.clear();
     _landedInCup = 0;
+    _currentStreak = 0;
     _phase = SessionPhase.playing;
     notifyListeners();
   }
@@ -68,6 +69,9 @@ class GameViewModel extends ChangeNotifier {
       if (streak >= 2) {
         final streakBonus = (streak - 1) * 100;
         gained += streakBonus;
+      }
+      if (streak >= 5) {
+        _currentStreak = 0;
       }
 
       // ノーバウンス/中央ヒットのボーナスは廃止（基本点 + 連続成功ボーナスのみ）

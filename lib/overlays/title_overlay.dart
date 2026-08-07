@@ -15,55 +15,75 @@ class TitleOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final compact = screenHeight < 480;
+    final titleFontSize = compact ? 32.0 : 40.0;
+    final descriptionFontSize = compact ? 13.0 : 14.0;
+    final titlePadding = compact
+        ? const EdgeInsets.symmetric(horizontal: 22, vertical: 9)
+        : const EdgeInsets.symmetric(horizontal: 28, vertical: 10);
+    final verticalGap = compact ? 10.0 : 12.0;
+    final buttonGap = compact ? 18.0 : 28.0;
+
     return Container(
-      color: AppColors.charcoal.withOpacity(0.55),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
-              decoration: BoxDecoration(
-                color: AppColors.cream,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: AppColors.charcoal, width: 4),
-                boxShadow: const [
-                  BoxShadow(color: AppColors.charcoal, offset: Offset(6, 6)),
-                ],
-              ),
-              child: const Text(
-                'からあげ in!',
-                style: TextStyle(
-                  color: AppColors.red,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 40,
+      color: AppColors.charcoal.withValues(alpha: 0.55),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 24),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: titlePadding,
+                      decoration: BoxDecoration(
+                        color: AppColors.cream,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: AppColors.charcoal, width: 4),
+                        boxShadow: const [
+                          BoxShadow(color: AppColors.charcoal, offset: Offset(6, 6)),
+                        ],
+                      ),
+                      child: Text(
+                        'からあげ in!',
+                        style: TextStyle(
+                          color: AppColors.red,
+                          fontWeight: FontWeight.w900,
+                          fontSize: titleFontSize,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: verticalGap),
+                    Text(
+                      'ヤガあげクンを操作して、紙コップに唐揚げを投げ入れよう!\n'
+                      'ドラッグして狙いを定め、指を離すと発射!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppColors.cream,
+                        fontSize: descriptionFontSize,
+                        fontWeight: FontWeight.w700,
+                        height: 1.6,
+                      ),
+                    ),
+                    SizedBox(height: buttonGap),
+                    PopButton(
+                      label: 'スタート',
+                      color: AppColors.red,
+                      textColor: AppColors.cream,
+                      onPressed: () {
+                        AudioManager.instance.playClick();
+                        viewModel.startGame();
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
-            const SizedBox(height: 12),
-            const Text(
-              'ヤガあげクンを操作して、紙コップに唐揚げを投げ入れよう!\n'
-              'ドラッグして狙いを定め、指を離すと発射!',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: AppColors.cream,
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                height: 1.6,
-              ),
-            ),
-            const SizedBox(height: 28),
-            PopButton(
-              label: 'スタート',
-              color: AppColors.red,
-              textColor: AppColors.cream,
-              onPressed: () {
-                AudioManager.instance.playClick();
-                viewModel.startGame();
-              },
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

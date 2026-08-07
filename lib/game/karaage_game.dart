@@ -111,6 +111,8 @@ class KaraageGame extends FlameGame with DragCallbacks, HasCollisionDetection {
         break;
       case SessionPhase.result:
         _showOnly(GameOverlays.result);
+        AudioManager.instance.stopBgm();
+        _bgmStarted = false;
         if (viewModel.buildResult().isPerfect) {
           AudioManager.instance.playPerfect();
         }
