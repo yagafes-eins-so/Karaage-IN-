@@ -10,7 +10,7 @@ class AudioManager {
   bool _muted = false;
   bool get muted => _muted;
 
-  static const _bgm = 'bgm_loop.mp3';
+  static const _bgm = 'bunkasai_ingame_loop_20s.mp3';
   static const _sfxClick = 'sfx_click.mp3';
   static const _sfxCharge = 'sfx_charge.mp3';
   static const _sfxThrow = 'sfx_throw.mp3';
