@@ -65583,7 +65583,7 @@ A.QF.prototype={
 vs(){var s=0,r=A.D(t.H),q=this,p,o,n,m,l
 var $async$vs=A.E(function(a,b){if(a===1)return A.A(b,r)
 for(;;)switch(s){case 0:$.PP().b="assets/audio/"
-p=["bgm_loop.mp3","sfx_click.mp3","sfx_charge.mp3","sfx_throw.mp3","sfx_success.mp3","sfx_miss.mp3","sfx_perfect.mp3"]
+p=["bunkasai_ingame_loop_20s.mp3","sfx_click.mp3","sfx_charge.mp3","sfx_throw.mp3","sfx_success.mp3","sfx_miss.mp3","sfx_perfect.mp3"]
 o=t.y,n=0,m=0
 case 2:if(!(m<7)){s=4
 break}l=p[m]
@@ -65613,7 +65613,7 @@ $0(){var s=0,r=A.D(t.P),q=1,p=[],o,n
 var $async$$0=A.E(function(a,b){if(a===1){p.push(b)
 s=q}for(;;)switch(s){case 0:q=3
 s=6
-return A.w($.adP().k8("bgm_loop.mp3",0.5),$async$$0)
+return A.w($.adP().k8("bunkasai_ingame_loop_20s.mp3",0.5),$async$$0)
 case 6:q=1
 s=5
 break
